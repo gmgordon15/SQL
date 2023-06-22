@@ -1,0 +1,24 @@
+
+--Creating Database using SQL commands:
+CREATE TABLE store (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, quantity INTEGER, rating INTEGER);
+
+--Inserting data into the columns that were previously created
+INSERT INTO store VALUES(1, "tires", 35, 200, 4);
+INSERT INTO store VALUES(2, "televisions", 2000, 100, 4);
+INSERT INTO store VALUES(3, "Legos", 40, 150, 5);
+INSERT INTO store VALUES(4, "Cups", 20, 3000, 2);
+INSERT INTO store VALUES(5, "Bottles", 30, 15000, 5);
+INSERT INTO store VALUES(6, "Mice", 50, 1500, 5);
+INSERT INTO store VALUES(7, "Tables", 40, 2000, 3);
+INSERT INTO store VALUES(8, "Deod0rant", 12, 3000, 5);
+INSERT INTO store VALUES(9, "PREWORKOUT", 50, 4000, 4); 
+INSERT INTO store VALUES(10, "Protein Powder", 36, 2000, 5); 
+
+INSERT INTO store VALUES(11, "Lotion", 23, 6000, 5); 
+INSERT INTO store VALUES(12, "Watch", 147, 200, 3); 
+INSERT INTO store VALUES(13, "Glasses", 123, 270, 4); 
+INSERT INTO store VALUES(14, "Guitars", 1426, 150, 5); 
+INSERT INTO store VALUES(15, "Piano", 400, 450, 5); 
+
+--Display Database by price DESC
+SELECT * FROM store ORDER BY price DESC;
