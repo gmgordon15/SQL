@@ -55,4 +55,11 @@ AND length(orderID) = 6
 AND orderID <> 'Order ID';
 
 
+List all of the products sold in Los Angeles during February
+Select Product, SUM(quantity), location
+From Bit_DB.FebSales
+Where location like "%los angeles%"
+group by product;
+
+
 ANSWER = 278 Customers, AVG PRICE = $12.79
