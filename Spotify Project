@@ -1,0 +1,29 @@
+These queries were based on a data set of sportifies top 50 songs on 2021:
+
+What were the top 5 most popular Songs of 2021?
+Select artist_name, track_name, popularity
+FROM Spotifydata
+Order By popularity DESC
+LIMIT 5;
+
+Answer = good 4 u, Bad Habits, Woman, Heat Waves, Yonaguni
+
+
+What was the average duration of songs in 2021 in seconds and minutes
+SELECT AVG(duration_ms)/1000 as Seconds, (AVG(duration_ms)/1000)/60 As Minutes
+FROM Spotifydata;
+
+ANSWER = 197.4 seconds and 3.29 minutes
+
+
+What were the songs with the highest tempo and lowest tempo?
+SELECT track_name, artist_name, MAX(tempo)
+FROM Spotifydata;
+
+SELECT track_name, artist_name, MIN(tempo)
+FROM Spotifydata;
+
+Highest Tempo = DejaVu - Olivia Rodrigo and Lowest Tempo = Arcade Duncan Laurence
+
+
+
