@@ -63,3 +63,50 @@ group by product;
 
 
 ANSWER = 278 Customers, AVG PRICE = $12.79
+
+
+
+/*Which locations in New York received at least 3 orders in January, and how many orders did they each receive?*/
+SELECT distinct location, count(orderID)
+FROM BIT_DB.JanSales
+WHERE location LIKE "%NY%"
+AND length(orderid) = 6 
+AND orderid <> 'Order ID'
+Group BY location 
+Having count(orderID) > 2;
+
+
+/*How many of each type of headphone were sold in February?*/
+SELECT product, sum(quantity)
+FROM BIT_DB.FebSales
+Where product like "%Headphones%"
+Group by product;
+
+
+
+/*What was the average amount spent per account in February?*/
+SELECT COUNT(customers.acctnum), AVG(FEB.price), SUM(FEB.price*FEB.quantity)/COUNT(customers.acctnum) AS Average_Spent_Per_Account
+FROM BIT_DB.customers
+JOIN BIT_DB.FebSales FEB
+ON customers.order_id = FEB.orderID
+WHERE length(orderid) = 6 
+AND orderid <> 'Order ID';;
+
+
+
+/*What was the average quantity of products purchased per account in February?*/
+SELECT Count(customers.acctnum), SUM(FEB.quantity), AVG(FEB.quantity), SUM(Quantity)/Count(customers.acctnum) AS AVerage_Quantity
+FROM BIT_DB.customers
+JOIN BIT_DB.FebSales FEB
+ON  customers.order_id = FEB.orderID
+WHERE length(orderid) = 6 
+AND orderid <> 'Order ID';
+
+
+
+/*Which product brought in the most revenue in January and how much revenue did it bring in total?*/
+SELECT product, price, quantity, sum(price*quantity) as total_revenue
+FROM BIT_DB.JanSales
+GROUP BY product
+ORDER BY total_revenue DESC
+LIMIT 1;
